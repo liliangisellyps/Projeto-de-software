@@ -2,9 +2,9 @@ package src;
 
 import java.time.LocalDate;
 
-public class Comissions {
-    Double percentOfSales;
-    LocalDate dateOfSale;
-    Double priceOfSale;
-    Double comission;
+public class Comissions extends Salary {
+    private Double percentOfSales;
+    private LocalDate dateOfSale;
+    private Double priceOfSale;
+    private Double comission;
 }

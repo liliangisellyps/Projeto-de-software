@@ -1,5 +1,5 @@
 package src;
 
-public class MailCheck {
+public class MailCheck extends PaymentMethod{
 
 }

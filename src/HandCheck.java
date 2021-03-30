@@ -1,5 +1,5 @@
 package src;
 
-public class HandCheck {
+public class HandCheck extends PaymentMethod {
 
 }

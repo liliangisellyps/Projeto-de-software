@@ -1,8 +1,8 @@
 package src;
 
-public class Company {
-    String name;
-    Double number;
-    String id;
-    String address;
+public class Company extends Payroll{
+    public String name;
+    private Double number;
+    private String id;
+    private String address;
 }

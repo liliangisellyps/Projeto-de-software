@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 import jdk.vm.ci.meta.Local;
 
-public class TimeCard {
+public class TimeCard extends Employee {
     LocalTime checkIn;
     LocalTime checkOut;
     LocalDate date;

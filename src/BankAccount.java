@@ -1,6 +1,6 @@
 package src;
 
-public class BankAccount {
-    String bank;
-    Double number;
+public class BankAccount extends PaymentMethod {
+    private String bank;
+    private double number;
 }

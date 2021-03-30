@@ -1,4 +1,4 @@
-public class Employee {
+public class Employee extends Payroll {
     
     String name;
     String id;
