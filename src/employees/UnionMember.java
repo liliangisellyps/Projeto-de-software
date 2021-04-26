@@ -1,9 +1,9 @@
 package src.employees;
 
 public class UnionMember {
-    int monthlyTax;
-    int serviceTaxes;
-    int idUT;
+    private int monthlyTax;
+    private int serviceTaxes;
+    private int idUT;
     
     public UnionMember(int monthlyTax, int serviceTaxes, int idUT) {
         this.monthlyTax = monthlyTax;

@@ -1,16 +1,23 @@
 package src;
 
 public class Payment {
-    private PaymentMethod paymentMethod;
+    private int paymentMethod;
     private int bank;
     private int agency;
     private int account;
 
-    public Payment(PaymentMethod paymentMethod, int bank2, int agency2, int account2) {
+    public Payment(int paymentMethod, int bank2, int agency2, int account2) {
         this.setPaymentMethod(paymentMethod);
         this.setBank(bank2);
         this.setAgency(agency2);
         this.setAccount(account2);
+    }
+
+    public String paymentMethodToString() {
+        if(this.getPaymentMethod() == 1) return "Mail Check";
+        else if (this.getPaymentMethod() == 2) return "Hand Check";
+        else if (this.getPaymentMethod() == 3) return "Bank Deposit";
+        else return "Invalid";
     }
 
     public int getAccount() {
@@ -37,11 +44,11 @@ public class Payment {
         this.bank = bank;
     }
 
-    public PaymentMethod getPaymentMethod() {
+    public int getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
+    public void setPaymentMethod(int paymentMethod) {
         this.paymentMethod = paymentMethod;
     }    
 }

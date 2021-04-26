@@ -51,18 +51,11 @@ public class EmployeeActions {
             unionMember =  new UnionMember(0, 0, 0);
         }
 
-        PaymentMethod paymentMethod;
         System.out.println("Now, let's configure the payment informations!");
         System.out.println("What's the payment method of your employee's preference? Please enter only the number correspondent.\n");
         System.out.println("1 - Check sent by mail\n2 - Check delivered on hands\n3 - Bank Account Deposit\n");
        
-        op = input.nextInt();
-        if(op == 1)
-            paymentMethod = new PaymentMethod(true, false, false);
-        else if(op == 2)
-            paymentMethod = new PaymentMethod(false, true, false);
-        else
-            paymentMethod = new PaymentMethod(false, false, true);
+        int paymentMethod = input.nextInt();;
 
         System.out.println("Now, enter your employee bank's number\n");
         int bank = input.nextInt();
@@ -118,10 +111,11 @@ public class EmployeeActions {
 
     private static void printEmployees(Scanner input, List<Employee> employeesList) {
         int i=0;
-        System.out.println("Here's a list of all your employees:");
+        System.out.println("Here's a list of all your employees:\n\n");
         for(Employee employee : employeesList){
-            System.out.println(i + "- ");
+            System.out.println("Employee " + i + " - ");
             System.out.println(employee.employeeInfos());
+            System.out.println("\n\n");
             i++;
         }
     }
@@ -207,6 +201,123 @@ public class EmployeeActions {
             employee.getUnionMember().setServiceTaxes(serviceTax);
             System.out.println("\nService Tax Successfully Added!");
             System.out.println("\n\n\n\n");
+
+        }
+    }
+
+    public static void changeEmpInfos(Scanner input, List<Employee> employeesList) {
+        printEmployees(input, employeesList);
+        System.out.println("Which employee do you wanna make changes? Enter the number correspondent.");
+        int index = input.nextInt();
+        Employee employee = employeesList.get(index);
+        int option = 1;
+        int op;
+        while(option != 0){
+
+            System.out.println("What do you wanna do?");
+            System.out.println("1 - Change Name\n2 - Change Address\n3 - Change Type of Employee\n4 - Change Method of Payment\n5 - Change Union Trade Memembership\n6 - Change Union Trade ID\n7 - Change Union Trade Tax\n0 - Exit.");
+            option = input.nextInt();
+            switch(option){
+                case 1:
+                    System.out.println("This is the name of your employee:");
+                    System.out.println(employee.getName());
+                    System.out.println("Are you sure you want to change it? Press '1' to 'Yes and '0' to 'No'");
+                    op = input.nextInt();
+                    input.nextLine();
+                    if(op == 1){
+                        System.out.println("Enter new name.");
+                        String newName = input.nextLine();
+                        employee.setName(newName);
+                        System.out.println("This is your employee's new name:");
+                        System.out.println(employee.getName());
+                    }
+                    break;
+                case 2:
+                    System.out.println("This is the address of your employee:");
+                    System.out.println(employee.getAddress());
+                    System.out.println("Are you sure you want to change it? Press '1' to 'Yes and '0' to 'No'");
+                    op = input.nextInt();
+                    input.nextLine();
+                    if(op == 1){
+                        System.out.println("Enter new address.");
+                        employee.setAddress(input.nextLine());
+                        System.out.println("This is your employee's new address:");
+                        System.out.println(employee.getAddress());
+                    }
+                    break;
+                case 3:
+                    System.out.println("This is the type of your employee:");
+                    System.out.println(employee.employeeTypeToString());
+                    System.out.println("Are you sure you want to change it? Press '1' to 'Yes and '0' to 'No'");
+                    op = input.nextInt();
+                    input.nextLine();
+                    if(op == 1){
+                        System.out.println("Enter new type.");
+                        employee.setEmployeeType(input.nextInt());
+                        System.out.println("This is your employee's new type:");
+                        System.out.println(employee.employeeTypeToString());
+                    }
+                    break;
+                case 4:
+                    System.out.println("This is the method of payment of your employee:");
+                    System.out.println(employee.getPayment().paymentMethodToString());
+                    System.out.println("Are you sure you want to change it? Press '1' to 'Yes and '0' to 'No'");
+                    op = input.nextInt();
+                    input.nextLine();
+                    if(op == 1){
+                        System.out.println("Enter new payment method. (1 for Salaried, 2 for Commisioned and 3 for Hourly.\n");
+                        int newMet = input.nextInt();
+                        employee.getPayment().setPaymentMethod(newMet);
+                        System.out.println("This is your employee's new payment method:");
+                        System.out.println(employee.getPayment().paymentMethodToString());
+                    }
+                    break;
+                case 5:
+                    System.out.println("Your employee is currently");
+                    if(employee.getUnionMember().getIdUT() == 0) System.out.println("not");
+                    System.out.println("associated to the Union Trade. Are you sure you want to change it?\n");
+                    System.out.println("Press '1' to 'Yes' and '0' to 'No'");
+                    option = input.nextInt();
+                    if(option == 1 && employee.getUnionMember().getIdUT() == 0) {
+                        System.out.println("\nEnter the Monthly Tax from the Union Trade\n");
+                        employee.getUnionMember().setMonthlyTax(input.nextInt());
+                        System.out.println("\nEnter the Service Taxes from the Union Trade\n");
+                        employee.getUnionMember().setServiceTaxes(input.nextInt());
+                        int idUT = new Random().nextInt(10000);
+                        employee.getUnionMember().setIdUT(idUT);
+                        System.out.println("Your employee is now associated to the Union Trade.");
+                    } else if (option == 1 && employee.getUnionMember().getIdUT() != 0) {
+                        employee.getUnionMember().setIdUT(0);
+                        System.out.println("Your employee isn't associated to the Union Trade anymore.");
+                    }
+                    break;
+                case 6:
+                    System.out.println("Your employee's union trade id is:");
+                    System.out.println(employee.getUnionMember().getIdUT());
+                    System.out.println("Are you sure you want to change it?");
+                    System.out.println("Press '1' to 'Yes' and '0' to 'No'\n");
+                    option = input.nextInt();
+                    if(option == 1){
+                        int idUT = new Random().nextInt(10000);
+                        employee.getUnionMember().setIdUT(idUT);
+                        System.out.println("Your new ID is");
+                        System.out.println(employee.getUnionMember().getIdUT());
+                    }
+                    break;
+                case 7:
+                    System.out.println("The current service monthly tax is:");
+                    System.out.println(employee.getUnionMember().getMonthlyTax());
+                    System.out.println("Are you sure you want to change it?");
+                    System.out.println("Press '1' to 'Yes' and '0' to 'No'\n");
+                    option = input.nextInt();
+                    if(option == 1){
+                        System.out.println("Enter new service tax.");
+                        employee.getUnionMember().setMonthlyTax(input.nextInt());
+                        System.out.println("Your new  service monthly tax is:");
+                        System.out.println(employee.getUnionMember().getMonthlyTax());
+                    }
+                    break;
+            }
 
         }
     }

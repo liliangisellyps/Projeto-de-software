@@ -7,14 +7,14 @@ import src.Payment;
 
 public class Commissioned extends Employee{
     private int salary;
-    private int comission;
+    private int commission;
     private List<SaleReport> salesReport;
   
     public Commissioned(String name, int id, String address, UnionMember unionMember, Payment payment, int employeeType,
-            int salary, int comission) {
+            int salary, int commission) {
         super(name, id, address, unionMember, payment, employeeType);
         this.salary = salary;
-        this.comission = comission;
+        this.commission = commission;
         this.salesReport = new ArrayList<SaleReport>();
 
     }
@@ -25,10 +25,10 @@ public class Commissioned extends Employee{
         this.salary = salary;
     }
     public int getComission() {
-        return comission;
+        return commission;
     }
-    public void setComission(int comission) {
-        this.comission = comission;
+    public void setComission(int commission) {
+        this.commission = commission;
     }
     public List<SaleReport> getSalesReport() {
         return salesReport;

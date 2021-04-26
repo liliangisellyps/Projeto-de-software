@@ -22,7 +22,19 @@ public class Employee extends Payroll {
     }
 
     public String employeeInfos(){
-        return "name:" + this.getName() + "\nid:" + this.getId() + "\naddress:" + getAddress() + "\nemployee type:" + this.getEmployeeType();
+        return "Name: " + this.getName() + "\nID: " + this.getId() + "\nAddress: " + getAddress() + "\nEmployee Type: " + employeeTypeToString() + "\nIs Union Member? " + isUnionMember();
+    }
+
+    public String employeeTypeToString() {
+        if(this.getEmployeeType() == 1) return "Salaried";
+        else if (this.getEmployeeType() == 2) return "Commissioned";
+        else if (this.getEmployeeType() == 3) return "Hourly";
+        else return "Invalid";
+    }
+
+    public String isUnionMember() {
+        if(this.getUnionMember().getIdUT() == 0) return "No.";
+        else return "Yes."; 
     }
 
     public String getName() {

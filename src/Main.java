@@ -22,7 +22,7 @@ public class Main {
             System.out.println("3 - Add TimeCard\n");
             System.out.println("4 - Add Sale Report\n");
             System.out.println("5 - Add Service Taxes\n");
-            System.out.println("6 - Change Employee Infos\n");
+            System.out.println("6 - Modify Employee Infos\n");
             System.out.println("7 - Pay Employees\n");
             System.out.println("8 - Undo/redo previous action\n");
             System.out.println("9 - Change Payment Day\n");
@@ -52,7 +52,9 @@ public class Main {
                     if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't add service taxes.");
                     else EmployeeActions.addServiceTaxes(input, employeesList);
                     break;
-                case 6:
+                case 6: // Change Employee Infos
+                    if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't change anything.");
+                    else EmployeeActions.changeEmpInfos(input, employeesList);
                     break;
                 case 7:
                     break;
@@ -67,6 +69,7 @@ public class Main {
                 default:
                     break;
             }
+            System.out.println("\n\n\n");
         }
         input.close();
     }
