@@ -1,16 +1,21 @@
 package src.employees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import src.Payment;
 
 public class Hourly extends Employee {
     private int hourSalary;
-    private TimeCard timecard;
-   
-    public Hourly(String name, int id, String address, UnionMember unionMember, Payment payment, int hourSalary) {
-        super(name, id, address, unionMember, payment);
+    
+    private List<TimeCard> timecard;
+    
+    public Hourly(String name, int id, String address, UnionMember unionMember, Payment payment, int employeeType,
+            int hourSalary) {
+        super(name, id, address, unionMember, payment, employeeType);
         this.hourSalary = hourSalary;
+        this.timecard = new ArrayList<TimeCard>();
     }
-
     public int getHourSalary() {
         return hourSalary;
     }
@@ -19,11 +24,11 @@ public class Hourly extends Employee {
         this.hourSalary = hourSalary;
     }
 
-    public TimeCard getTimecard() {
-        return timecard;
+    public List<TimeCard> getTimecard() {
+        return this.timecard;
     }
  
-    public void setTimecard(TimeCard timecard) {
+    public void setTimecard(List<TimeCard> timecard) {
         this.timecard = timecard;
     }
 }

@@ -10,9 +10,14 @@ public class UnionMember {
         this.serviceTaxes = serviceTaxes;
         this.idUT = idUT;
     }
-
+    public UnionMember(int serviceTaxes) {
+        this.serviceTaxes = serviceTaxes;
+    }
     public int getMonthlyTax() {
         return monthlyTax;
+    }
+    public void setMonthlyTax(int monthlyTax) {
+        this.monthlyTax = monthlyTax;
     }
 
     public void setServiceTaxes(int serviceTaxes) {
@@ -22,4 +27,13 @@ public class UnionMember {
     public int getServiceTaxes() {
         return serviceTaxes;
     }
+
+    public int getIdUT() {
+        return idUT;
+    }
+
+    public void setIdUT(int idUT) {
+        this.idUT = idUT;
+    }
+    
 }

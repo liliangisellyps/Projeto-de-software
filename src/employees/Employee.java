@@ -10,17 +10,19 @@ public class Employee extends Payroll {
     private String address;
     private UnionMember unionMember;
     private Payment payment;
+    private int employeeType;
 
-    public Employee(String name, int id, String address, UnionMember unionMember, Payment payment) {
+    public Employee(String name, int id, String address, UnionMember unionMember, Payment payment, int employeeType) {
         this.name = name;
         this.id = id;
         this.address = address;
         this.unionMember = unionMember;
         this.payment = payment;
+        this.employeeType = employeeType;
     }
 
     public String employeeInfos(){
-        return "name:" + this.getName() + "\nid:" + this.getId() + "\naddress:" + getAddress() + "\n";
+        return "name:" + this.getName() + "\nid:" + this.getId() + "\naddress:" + getAddress() + "\nemployee type:" + this.getEmployeeType();
     }
 
     public String getName() {
@@ -61,6 +63,12 @@ public class Employee extends Payroll {
     
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+    public int getEmployeeType() {
+        return employeeType;
+    }
+    public void setEmployeeType(int employeeType) {
+        this.employeeType = employeeType;
     }
 
 }

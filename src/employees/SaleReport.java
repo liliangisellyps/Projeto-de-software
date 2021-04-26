@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class SaleReport {
     private LocalDate dateOfSale;
-    private Double priceOfSale;
+    private int priceOfSale;
 
-    public SaleReport(LocalDate dateOfSale, Double priceOfSale) {
+    public SaleReport(LocalDate dateOfSale, int priceOfSale) {
         this.setDateOfSale(dateOfSale);
         this.setPriceOfSale(priceOfSale);
     }
 
-    public Double getPriceOfSale() {
+    public int getPriceOfSale() {
         return priceOfSale;
     }
 
-    public void setPriceOfSale(Double priceOfSale) {
+    public void setPriceOfSale(int priceOfSale) {
         this.priceOfSale = priceOfSale;
     }
 

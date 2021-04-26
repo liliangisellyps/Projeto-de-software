@@ -40,11 +40,17 @@ public class Main {
                     if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't remove it.");
                     else EmployeeActions.removeEmployee(input, employeesList);
                     break;
-                case 3:
+                case 3: // add time card
+                    if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't add a time card.");
+                    else EmployeeActions.addTimeCard(input, employeesList);
                     break;
-                case 4:
+                case 4: // add sale report
+                    if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't add a sales report.");
+                    else EmployeeActions.addSaleReport(input, employeesList);
                     break;
-                case 5:
+                case 5: // add service taxes
+                    if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't add service taxes.");
+                    else EmployeeActions.addServiceTaxes(input, employeesList);
                     break;
                 case 6:
                     break;

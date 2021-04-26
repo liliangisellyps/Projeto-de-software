@@ -1,19 +1,23 @@
 package src.employees;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import src.Payment;
 
 public class Commissioned extends Employee{
     private int salary;
     private int comission;
-    private SaleReport salesReport;
-    
-    public Commissioned(String name, int id, String address, UnionMember unionMember, Payment payment, int salary,
-            int comission) {
-        super(name, id, address, unionMember, payment);
+    private List<SaleReport> salesReport;
+  
+    public Commissioned(String name, int id, String address, UnionMember unionMember, Payment payment, int employeeType,
+            int salary, int comission) {
+        super(name, id, address, unionMember, payment, employeeType);
         this.salary = salary;
         this.comission = comission;
+        this.salesReport = new ArrayList<SaleReport>();
+
     }
-  
     public int getSalary() {
         return salary;
     }
@@ -26,10 +30,10 @@ public class Commissioned extends Employee{
     public void setComission(int comission) {
         this.comission = comission;
     }
-    public SaleReport getSalesReport() {
+    public List<SaleReport> getSalesReport() {
         return salesReport;
     }
-    public void setSalesReport(SaleReport salesReport) {
+    public void setSalesReport(List<SaleReport> salesReport) {
         this.salesReport = salesReport;
     }
     
