@@ -16,8 +16,7 @@ public class Main {
             System.out.println("-----------------------------------");
             System.out.println("\nWelcome to the payroll system!\n");
             System.out.println("-----------------------------------");
-            System.out.println("Payroll System\n");
-            System.out.println("What would you like to do? Please choose an option above:\n");
+            System.out.println("What would you like to do? Please choose an option below:\n");
             System.out.println("1 - Add Employee\n");
             System.out.println("2 - Remove Employee\n");
             System.out.println("3 - Add TimeCard\n");
@@ -31,12 +30,15 @@ public class Main {
             System.out.println("11 - Exit System");
 
             option = input.nextInt();
+            input.nextLine();
 
             switch(option) {
                 case 1: // register new employee
-                    employeesList.add(EmployeeActions.addEmployee());
+                    employeesList.add(EmployeeActions.addEmployee(input));
                     break;
-                case 2:
+                case 2: // remove a employee
+                    if(employeesList.isEmpty()) System.out.println("There's no employee in the system. You can't remove it.");
+                    else EmployeeActions.removeEmployee(input, employeesList);
                     break;
                 case 3:
                     break;
@@ -59,11 +61,7 @@ public class Main {
                 default:
                     break;
             }
-            
-            option = input.nextInt();
-            option = input.nextInt();
         }
         input.close();
-
     }
 }

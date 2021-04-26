@@ -19,10 +19,8 @@ public class Employee extends Payroll {
         this.payment = payment;
     }
 
-    public String printEmployeeInfo(Employee employee){
-        return "Name: " + this.name +
-        "\n---------------------"+
-        "Name: " + employee.name;
+    public String employeeInfos(){
+        return "name:" + this.getName() + "\nid:" + this.getId() + "\naddress:" + getAddress() + "\n";
     }
 
     public String getName() {

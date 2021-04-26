@@ -1,5 +1,6 @@
 package src;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -12,16 +13,12 @@ import src.employees.UnionMember;
 
 public class EmployeeActions {
 
-    public static Employee addEmployee() {
+    public static Employee addEmployee(Scanner input) {
         Employee employee;
-
-        Scanner input = new Scanner(System.in);
 
         System.out.println("-----------------------------------");
         System.out.println("\nLet's start our employee registration!\n");
         System.out.println("-----------------------------------");
-
-        int id = new Random().nextInt(10000);
 
         System.out.println("\nWhat's the name of the Employee?\n");
         String name = input.nextLine();
@@ -78,6 +75,7 @@ public class EmployeeActions {
         System.out.println("Finally, what's the type of the Employee? Please enter only the number correspondent.\n1 - Salaried\n2 - Commissioned\n3 - Hourly\n");
         int employeeType = input.nextInt();
         int salary;
+        int id = new Random().nextInt(10000);
         switch(employeeType){
             case 1: // Salaried
                 System.out.println("Enter the Salary of your employee:\n");
@@ -101,10 +99,23 @@ public class EmployeeActions {
         }
         System.out.println("\nThe ID of your new employee is");
         System.out.println(id);
+        System.out.println("\nNew employee was successfully registered! Thank you.\n");
+        System.out.println(employee.employeeInfos());
 
-        input.close();
-        System.out.println("\nYour employee was successfully registered! Thank you.\n");
         return employee;
     }
     
+    public static void removeEmployee(Scanner input, List<Employee> employeesList) {
+        int i=0;
+        System.out.println("Here's a list of all your employees:");
+        for(Employee employee : employeesList){
+            System.out.println(i + "- ");
+            System.out.println(employee.employeeInfos());
+            i++;
+        }
+        System.out.println("Which employee do you wanna remove? Enter the number correspondent.");
+        int index = input.nextInt();
+        employeesList.remove(index);
+        System.out.println("Removed successfully!");
+    }
 }
